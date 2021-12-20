@@ -1,6 +1,6 @@
-# Les Boulangers - Authentication Server
+# Les Boulangers - CDN
 
-Dans le cadre du projet du cours AMT (Application multi-tiers) à la HEIG-VD, nous sommes chargés de créer un site web de e-commerce décomposé en microservices. Ce repository gère le service d'authentification.
+Dans le cadre du projet du cours AMT (Application multi-tiers) à la HEIG-VD, nous sommes chargés de créer un site web de e-commerce décomposé en microservices. Ce repository gère le service de CDN.
 
 Le repo central, ainsi que le wiki est disponible via ce lien : https://github.com/LeonardBesseau/AMT-Project 
 
