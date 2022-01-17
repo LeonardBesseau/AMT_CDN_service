@@ -7,9 +7,7 @@ import javax.sql.DataSource;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.postgres.PostgresPlugin;
 
-/**
- * Manage db connection lifetime
- */
+/** Manage db connection lifetime */
 @Singleton
 public class JdbiProvider {
 
