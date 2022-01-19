@@ -36,7 +36,7 @@ public class ImageService {
     return uuid;
   }
 
-  public void setDefaultImage(byte[] data) {
+  public UUID setDefaultImage(byte[] data) {
     UUID id = addImage(data);
     jdbi.useHandle(
         handle ->
@@ -44,6 +44,7 @@ public class ImageService {
                 .createUpdate(ResourceLoader.loadResource("sql/setDefaultImage.sql"))
                 .bind("id", id)
                 .execute());
+    return id;
   }
 
   public InputStream getDefaultImage() {

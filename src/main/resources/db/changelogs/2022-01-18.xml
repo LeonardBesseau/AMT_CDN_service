@@ -8,7 +8,6 @@
             <column name="info" type="TEXT">
                 <constraints unique="true"/>
             </column>
-
         </createTable>
     </changeSet>
 </databaseChangeLog>
