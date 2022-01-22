@@ -16,11 +16,7 @@ jobs:
           java-version: 11
       - name: Install the dependencies
         working-directory: .
-        run: mvn clean package
-      - name: display
-        run: ls target
-      - name: display
-        run: ls target/quarkus-app
+        run: mvn clean package -DskipTests
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
