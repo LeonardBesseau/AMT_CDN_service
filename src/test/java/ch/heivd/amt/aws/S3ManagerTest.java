@@ -45,8 +45,7 @@ class S3ManagerTest {
   // The key name of the files created by the tests
   private static final String TEST_KEY = "testFile";
 
-  @Inject
-  S3Manager s3Manager;
+  @Inject S3Manager s3Manager;
 
   @Inject S3Client s3Client;
 
