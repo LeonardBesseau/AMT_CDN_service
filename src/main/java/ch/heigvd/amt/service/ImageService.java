@@ -26,16 +26,34 @@ public class ImageService {
     this.jdbi = jdbi;
   }
 
+  /**
+   * Get an image with the given id
+   *
+   * @param id the id of the image
+   * @return a stream of the image
+   */
   public InputStream getImage(UUID id) {
     return s3Manager.download(String.valueOf(id));
   }
 
+  /**
+   * Add an image to S3
+   *
+   * @param data the data of the image
+   * @return the id associated with the image
+   */
   public UUID addImage(byte[] data) {
     UUID uuid = UUID.randomUUID();
     s3Manager.upload(String.valueOf(uuid), new ByteArrayInputStream(data), data.length);
     return uuid;
   }
 
+  /**
+   * Set the data for the default image
+   *
+   * @param data the data of the image
+   * @return the id associated with the image
+   */
   public UUID setDefaultImage(byte[] data) {
     UUID id = addImage(data);
     jdbi.useHandle(
@@ -47,6 +65,11 @@ public class ImageService {
     return id;
   }
 
+  /**
+   * Get the default image
+   *
+   * @return a stream of the image
+   */
   public InputStream getDefaultImage() {
     Optional<UUID> image =
         jdbi.withHandle(

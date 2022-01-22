@@ -55,6 +55,7 @@ public class ImageResource {
   @POST
   @RolesAllowed("ADMIN")
   @Consumes(MediaType.MULTIPART_FORM_DATA)
+  @Produces(MediaType.TEXT_HTML)
   public Response add(
       @MultipartForm MultipartFormDataInput input, @QueryParam("default") boolean def)
       throws IOException {
@@ -62,7 +63,7 @@ public class ImageResource {
 
     List<InputPart> inputParts = uploadForm.get("image");
     if (inputParts.isEmpty()) {
-      return Response.ok().entity("No file uploaded").build();
+      return Response.status(Status.BAD_REQUEST).entity("No file uploaded").build();
     }
 
     InputPart inputPart = inputParts.get(0);
