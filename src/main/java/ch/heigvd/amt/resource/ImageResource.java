@@ -75,7 +75,7 @@ public class ImageResource {
 
     UUID id = def ? imageService.setDefaultImage(bytes) : imageService.addImage(bytes);
 
-    return Response.status(Status.CREATED).entity(id).build();
+    return Response.status(Status.CREATED).entity(id.toString()).build();
   }
 
   public static byte[] extractImageData(InputPart inputPart) throws IOException {
